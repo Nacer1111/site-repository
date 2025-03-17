@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABDERRAHIM NACER - IDOCC 201 - ISTA NTIC</title>
+    <style>
+        :root {
+            --primary-color: #0078D4;
+            --secondary-color: #50E6FF;
+            --background-color: #f7f9fc;
+            --text-color: #333;
+            --accent-color: #ffaa44;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .student-info {
+            font-size: 14px;
+            color: #666;
+            margin-left: 10px;
+        }
+        
+        .institute-name {
+            font-size: 12px;
+            color: #888;
+            margin-left: 10px;
+            font-style: italic;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(240,248,255,0.9) 100%);
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .student-name {
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .student-class {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .student-institute {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #0063b1;
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #f0f8ff;
+        }
+        
+        .features {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+        
+        .feature-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .project-info {
+            padding: 80px 0;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+        
+        .project-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .project-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .project-detail {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .project-detail:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer li {
+            margin-bottom: 10px;
+        }
+        
+        .footer a {
+            text-decoration: none;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+        
+        .dark-theme {
+            --background-color: #1f2937;
+            --text-color: #f3f4f6;
+        }
+        
+        .dark-theme .hero {
+            background: linear-gradient(135deg, rgba(31,41,55,0.9) 0%, rgba(17,24,39,0.9) 100%);
+        }
+        
+        .dark-theme .hero h1,
+        .dark-theme .features h2,
+        .dark-theme .feature-card h3,
+        .dark-theme .project-info h2 {
+            color: var(--secondary-color);
+        }
+        
+        .dark-theme .hero p,
+        .dark-theme .student-class,
+        .dark-theme .student-institute {
+            color: #d1d5db;
+        }
+        
+        .dark-theme header {
+            background-color: #111827;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+        
+        .dark-theme .features,
+        .dark-theme .project-card {
+            background-color: #111827;
+        }
+        
+        .dark-theme .project-info {
+            background-color: #0f172a;
+        }
+        
+        .dark-theme .feature-card {
+            background-color: #1f2937;
+        }
+        
+        .dark-theme .nav-links a {
+            color: #d1d5db;
+        }
+        
+        .dark-theme .logo {
+            color: var(--secondary-color);
+        }
+        
+        .dark-theme .project-detail {
+            border-bottom-color: #2d3748;
+        }
+        
+        .dark-theme .detail-label {
+            color: #a0aec0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .student-name {
+                font-size: 28px;
+            }
+            
+            .student-class {
+                font-size: 20px;
+            }
+            
+            .student-institute {
+                font-size: 18px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .btn {
+                display: block;
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div>
+                    <div class="logo">ABDERRAHIM NACER</div>
+                    <div class="student-info">IDOCC 201 | 2025</div>
+                    <div class="institute-name">ISTA NTIC hay riad</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#project">Project</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="student-name">ABDERRAHIM NACER</div>
+                <div class="student-class">IDOCC 201 | 2025</div>
+                <div class="student-institute">ISTA NTIC hay riad</div>
+                <h1>Azure Static Website Project</h1>
+                <p>A demonstration of static website hosting using Azure Storage services as part of my cloud computing coursework.</p>
+                <div>
+                    <a href="#project" class="btn">View Project Details</a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="project-info" id="project">
+        <div class="container">
+            <h2>Project Information</h2>
+            <div class="project-card">
+                <h3>Deploy a Static Website on Azure Storage</h3>
+                <div class="project-detail">
+                    <div class="detail-label">Student:</div>
+                    <div>ABDERRAHIM NACER</div>
+                </div>
+                <div class="project-detail">
+                    <div class="detail-label">Class:</div>
+                    <div>IDOCC 201</div>
+                </div>
+                <div class="project-detail">
+                    <div class="detail-label">Year:</div>
+                    <div>2025</div>
+                </div>
+                <div class="project-detail">
+                    <div class="detail-label">Institution:</div>
+                    <div>ISTA NTIC hay riad</div>
+                </div>
+                <div class="project-detail">
+                    <div class="detail-label">Project:</div>
+                    <div>Static Website on Azure Storage</div>
+                </div>
+                <div class="project-detail">
+                    <div class="detail-label">Skills Learned:</div>
+                    <div>Azure Storage, Static Website Hosting, Public Access Configuration</div>
+                </div>
+                <div class="project-detail">
+                    <div class="detail-label">Description:</div>
+                    <div>This project demonstrates the use of Azure Blob Storage to store and serve HTML, CSS, and JavaScript files with static website hosting enabled.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="features" id="features">
+        <div class="container">
+            <h2>Azure Static Website Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Azure CDN integration ensures your static content is delivered with minimal latency from the edge location closest to your users.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure by Default</h3>
+                    <p>Built-in security features including HTTPS, Azure Active Directory integration, and Microsoft's enterprise-grade security infrastructure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Cost Effective</h3>
+                    <p>Pay only for the storage you use and bandwidth consumed. No need for virtual machines or complicated infrastructure.</p>
+                </div>
+                <div class="feature-card">
